@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+        .container {
+            width: 100%;
+            background-color:rgb(64, 2, 75);
+            height: 650px;
+        }
+        #question {
+            font-size: 25px;
+            width: 800px;
+            height: 130px;
+            border: 0px ;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: rgba(27, 26, 26, 0.5);
+
+        } 
+        .answer {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+        }
+        .answer1 {
+            width: 180px;
+            height: 150px;
+            font-size: 25px;
+            padding: 30px;
+            border-radius: 20px;
+            border: 0;
+            color: white;
+        }
+        .a1 {
+            background-color:rgb(76, 168, 199);
+        }
+        .a2 {
+            background-color: rgb(58, 188, 58);
+        }
+        .a3 {
+            background-color:rgb(220, 220, 55);
+        }
+        .a4 {
+            background-color: rgb(241, 87, 179);
+        }
+        .a1 .a2 .a3 .a4 {
+            position: relative;
+        }
+        .b1 {
+            position: absolute;
+            top: 320px;
+            left: 250px;
+        }
+        .b2 {
+            position: absolute;
+            top: 320px;
+            left: 565px;
+        }
+        .b3 {
+            position: absolute;
+            top: 320px;
+            left: 880px;
+        }
+        .b4 {
+            position: absolute;
+            top: 320px;
+            left: 1195px;
+        }
+        .button {
+            font-size: 25px;
+            background-color: indianred;
+            width: 200px;
+            height: 40px;
+        }
+
+    </style>
+    <title>donggop</title>
+</head>
+<body>
+    <div align="center" class="container">
+        <br>
+        <div><h1>Câu hỏi của bạn</h1><br><br>
+        <label for="question" style="font-size: 20px;" >Câu hỏi đóng góp:</label><br>
+        <input type="text" id="question" placeholder="Nhập câu hỏi:" >
+        </div>
+        <br><br>
+        <div class="answer">
+             <div>
+                <input type="text" placeholder="Nhập câu trả lời:" class="answer1 a1">
+                <input type="checkbox"  class="b1">
+             </div>
+             <div>
+                <input type="text" placeholder="Nhập câu trả lời:" class="answer1 a2">
+                <input type="checkbox" class="b2">
+             </div>
+             <div>
+                <input type="text" placeholder="Nhập câu trả lời:" class="answer1 a3">
+                <input type="checkbox" class="b3">
+             </div>
+             <div>
+                <input type="text" placeholder="Nhập câu trả lời:" class="answer1 a4">
+                <input type="checkbox" class="b4">
+             </div>
+        </div>
+        <br><br><br>
+        <div align="left" style="color: rgb(171, 184, 197);">
+            *click vào ô vuông nhỏ nếu đáp án đúng
+        </div>
+        <input type="button" value="Gửi câu hỏi" class="button">
+        <br>
+    </div>
+</body>
+</html>

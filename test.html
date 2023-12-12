@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .message {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="mainButton">Click me</button>
+    <div class="box">
+        <input type="checkbox" class="checkbox">
+        <p class="message"></p>
+    </div>
+    <div class="box">
+        <input type="checkbox" class="checkbox">
+        <p class="message"></p>
+    </div>
+    <div class="box">
+        <input type="checkbox" class="checkbox">
+        <p class="message"></p>
+    </div>
+    <div class="box">
+        <input type="checkbox" class="checkbox">
+        <p class="message"></p>
+    </div>
+
+    <script>
+        document.getElementById('mainButton').addEventListener('click', function() {
+            var checkboxes = document.getElementsByClassName('checkbox');
+            var messages = document.getElementsByClassName('message');
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    messages[i].textContent = 'Đã click';
+                } else {
+                    messages[i].textContent = 'Chưa click';
+                }
+                messages[i].style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
