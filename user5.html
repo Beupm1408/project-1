@@ -7,11 +7,11 @@
             padding: 0;
             font-family: Arial, Helvetica, sans-serif;
             color: white;
+            text-align: center;
         }
         .container {
             width: 100%;
             background-color:rgb(64, 2, 75);
-            height: 650px;
         }
         #question {
             font-size: 25px;
@@ -30,55 +30,68 @@
             justify-content: space-around;
 
         }
-        .answer1 {
+        .answer0 {
             width: 180px;
             height: 150px;
             font-size: 25px;
             padding: 30px;
             border-radius: 20px;
-            border: 0;
+            border:0;
             color: white;
         }
-        .a1 {
+        #a1 {
             background-color:rgb(76, 168, 199);
         }
-        .a2 {
+        #a2 {
             background-color: rgb(58, 188, 58);
         }
-        .a3 {
+        #a3 {
             background-color:rgb(220, 220, 55);
         }
-        .a4 {
+        #a4 {
             background-color: rgb(241, 87, 179);
         }
-        .a1 .a2 .a3 .a4 {
+        #a1 #a2 #a3 #a4 {
             position: relative;
         }
-        .b1 {
+        #b1 {
             position: absolute;
             top: 320px;
             left: 250px;
         }
-        .b2 {
+        #b2 {
             position: absolute;
             top: 320px;
-            left: 565px;
+            left: 560px;
         }
-        .b3 {
+        #b3 {
             position: absolute;
             top: 320px;
-            left: 880px;
+            left: 870px;
         }
-        .b4 {
+        #b4 {
             position: absolute;
             top: 320px;
-            left: 1195px;
+            left: 1185px;
         }
-        .button {
+        #button {
             font-size: 25px;
             background-color: indianred;
             width: 200px;
             height: 40px;
+            border-radius: 8px;
+        }
+        #bang {
+            background-color: rgba(23, 23, 24, 0.5);
+            font-size: 20px;
+        }
+        td {
+            border: 0.5px solid white;
+        }
+
+        
+        .highlight {
+            background-color: limegreen;
         }
 
     </style>
@@ -88,34 +101,113 @@
     <div align="center" class="container">
         <br>
         <div><h1>Câu hỏi của bạn</h1><br><br>
-        <label for="question" style="font-size: 20px;" >Câu hỏi đóng góp:</label><br>
+        
         <input type="text" id="question" placeholder="Nhập câu hỏi:" >
         </div>
         <br><br>
         <div class="answer">
              <div>
-                <input type="text" placeholder="Nhập câu trả lời:" class="answer1 a1">
-                <input type="checkbox"  class="b1">
+                <input type="text" placeholder="Nhập câu trả lời:" id="a1" class="answer0">
+                <input type="checkbox"  id="b1">
              </div>
              <div>
-                <input type="text" placeholder="Nhập câu trả lời:" class="answer1 a2">
-                <input type="checkbox" class="b2">
+                <input type="text" placeholder="Nhập câu trả lời:" id="a2" class="answer0">
+                <input type="checkbox" id="b2">
              </div>
              <div>
-                <input type="text" placeholder="Nhập câu trả lời:" class="answer1 a3">
-                <input type="checkbox" class="b3">
+                <input type="text" placeholder="Nhập câu trả lời:" id="a3" class="answer0">
+                <input type="checkbox" id="b3">
              </div>
              <div>
-                <input type="text" placeholder="Nhập câu trả lời:" class="answer1 a4">
-                <input type="checkbox" class="b4">
+                <input type="text" placeholder="Nhập câu trả lời:" id="a4" class="answer0">
+                <input type="checkbox" id="b4">
              </div>
         </div>
         <br><br><br>
-        <div align="left" style="color: rgb(171, 184, 197);">
-            *click vào ô vuông nhỏ nếu đáp án đúng
+        <div align="left" style="color: rgb(171, 184, 197); text-align: left;">
+            *click vào ô vuông nhỏ nếu đáp án đúng <br>
+            * Đáp án đúng sẽ được in nền xanh
         </div>
-        <input type="button" value="Gửi câu hỏi" class="button">
-        <br>
+        <input type="button" value="Gửi câu hỏi" id="button" onclick="check()">
+        <br><br> <br><br>
+        <div style="margin-left: 100px;">
+            
+            <div class="cauhoi">
+                <table width="1050px" id="bang">
+                    <tr align="center">
+                        <td width="50px">STT</td>
+                        <td width="500px">Câu hỏi</td>
+                        <td width="300px">Đáp án</td>
+                        <td width="150px">Trạng thái</td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
     </div>
+    <script>
+        var count = localStorage.getItem('count') || 0;
+        window.onload = function() {
+            for (let i = 0; i < count; i++) {
+                addRow(i);
+            }
+        }
+    
+        function check() {
+            var ques = document.getElementById('question').value;
+            var an1 = document.getElementById('a1').value;
+            var an2 = document.getElementById('a2').value;
+            var an3 = document.getElementById('a3').value;
+            var an4 = document.getElementById('a4').value;
+            if (ques === "" || an1 === "" && an2 === "" && an3 === "" && an4 === "") {
+                alert("không để trống câu hỏi và đáp án");
+            } else {
+                localStorage.setItem("questions" + count, ques);
+                localStorage.setItem("key1" + count, an1);
+                localStorage.setItem("key2" + count, an2);
+                localStorage.setItem("key3" + count, an3);
+                localStorage.setItem("key4" + count, an4);
+                addRow(count);
+                count++;
+                localStorage.setItem('count', count);
+            }
+        }
+    
+        function addRow(index) {
+            var table = document.getElementById("bang");
+            var row1 = table.insertRow(-1);
+            var cell1 = row1.insertCell(0);
+            var cell2 = row1.insertCell(1);
+            var cell3 = row1.insertCell(2);
+            var cell4 = row1.insertCell(3);
+            var cell5 = row1.insertCell(4);
+            cell1.innerHTML = index + 1;
+            cell2.innerHTML = localStorage.getItem('questions' + index);
+            let answers = [];
+            for (let i = 1; i <= 4; i++) {
+                if (document.getElementById('b' + i).checked) {
+                answers.push( '<span class="highlight">' + localStorage.getItem('key' + i + index) + '</span>');
+                } else {
+                    answers.push(localStorage.getItem('key' + i + index));
+                }
+            }
+            cell3.innerHTML = answers.join('<br>');
+            cell4.innerHTML = "Chưa duyệt";
+            cell5.innerHTML = '<button onclick="deleteRow(this, ' + index + ')">Xóa</button>';
+        }
+    
+        function deleteRow(btn, index) {
+            var row = btn.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+            localStorage.removeItem('questions' + index);
+            localStorage.removeItem('key1' + index);
+            localStorage.removeItem('key2' + index);
+            localStorage.removeItem('key3' + index);
+            localStorage.removeItem('key4' + index);
+            count--;
+            localStorage.setItem('count', count);
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Todo List</h2>
+
+<input id="input" type="text" name="todo">
+<button onclick="addTodo()">Thêm</button>
+
+<table id="table">
+  <tr>
+    <th>STT</th>
+    <th>Nội dung</th>
+    <th>Xóa</th>
+  </tr>
+</table>
+
+<script>
+let todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+function addTodo() {
+  const todo = document.getElementById('input').value;
+  todos.push(todo);
+  localStorage.setItem('todos', JSON.stringify(todos));
+  renderTodos();
+}
+
+function deleteTodo(index) {
+  todos.splice(index, 1);
+  localStorage.setItem('todos', JSON.stringify(todos));
+  renderTodos();
+}
+
+function renderTodos() {
+  const table = document.getElementById('table');
+  table.innerHTML = '<tr><th>STT</th><th>Nội dung</th><th>Xóa</th></tr>';
+  todos.forEach((todo, index) => {
+    const row = table.insertRow(-1);
+    const cell1 = row.insertCell(0);
+    const cell2 = row.insertCell(1);
+    const cell3 = row.insertCell(2);
+    cell1.innerHTML = index + 1;
+    cell2.innerHTML = todo;
+    cell3.innerHTML = '<button onclick="deleteTodo(' + index + ')">Xóa</button>';
+  });
+}
+
+renderTodos();
+</script>
+
+</body>
+</html>

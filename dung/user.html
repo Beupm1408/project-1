@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>user</title>
+</head>
+<body>
+    <div >
+        <div class="line1">
+            <table width="100%" height="50px" >
+                <tr align="center" >
+                    <td class="o1"></td>
+                    <td class="o2"><a href="" id="a1">Bạn có câu hỏi?</a></td>
+                    <td class="o2"><i class="fa-solid fa-phone"></i><a href="" id="a1"> 1234567890</a></td>
+                    <td class="o1"><i class="fa-solid fa-envelope"></i><a href="" id="a1"> abc@Gmail.com</a></td>
+                    <td class="o3"></td>
+                    <td class="o2">
+                        <div class="action">
+                        <div class="profile" onclick="menuToggle();">
+                            <img src="anh/banner.jpg">
+                        </div>
+                        <div class="menu">
+                            <h3>ABCD <br><span>Học viên</span></h3>
+                            <ul>
+                                <li><a href="#">Profile</a></li>
+                                <li><a href="#">Inbox</a></li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="index.html">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            function menuToggle(){
+                const toggleMenu = document.querySelector('.menu')
+                toggleMenu.classList.toggle('active')
+            }
+        </script>
+</body>
+</html>

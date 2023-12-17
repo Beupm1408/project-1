@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.hero{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(/anh/banner.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+.box{
+    width:380px;
+    height:700px;
+    position: relative;
+    margin-left: 550px;
+    margin-top: 10px;
+    background: linear-gradient(to right, #FFFFFF, #DCDCDC);
+    padding: 0;
+}
+.button-box{
+    width: 250px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+.logo{
+    width:100px;
+    height:100px;
+    position: relative;
+    left: 100px;
+    top: -50px;
+}
+.toggle-btn{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+
+}
+#btn{
+    top: 0;
+    left: 0;
+    position: absoLute;
+    width: 140px;
+    height: 100%;
+    background: linear-gradient(to right, #4169E1, #97FFFF);
+    border-radius: 30px;
+}
+.input-grp{
+    top: 180px;
+    left: 50px;
+    position: absolute;
+    width: 280px;
+}
+.input-field{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-top:0;
+    border-left:0;
+    border-right:0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+.submit-btn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #4169E1, #97FFFF);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+
+span{
+    color: #777;
+    font-size: 13px;
+    bottom: 80px;
+    position: absolute;
+}
+.log-reg{
+    cursor: pointer;
+    display: block;
+    position: relative;
+    top:30px;
+    text-decoration:underline;
+    color:#4169E1;
+    font-size:15px;
+}

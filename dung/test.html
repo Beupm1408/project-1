@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/test.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="action">
+        <div class="profile" onclick="menuToggle();">
+            <img src="anh/banner.jpg">
+        </div>
+        <div class="menu">
+            <h3>Name <br><span>Chức năng</span></h3>
+            <ul>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Inbox</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function menuToggle(){
+            const toggleMenu = document.querySelector('.menu')
+            toggleMenu.classList.toggle('active')
+        }
+    </script>
+</body>
+</html>

@@ -18,7 +18,7 @@
 .anh {
     position: relative;
 }
-.username {
+#username {
     font-size: 20px;
     border-radius: 50px;
     border: 1px solid rgb(0, 0, 0);
@@ -26,7 +26,7 @@
     width: 350px;
     height: 40px;
 }
-.pass {
+#pass {
     font-size: 20px;
     border-radius: 50px;
     border: 1px solid rgb(0, 0, 0);

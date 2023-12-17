@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <style>
-        .message {
-            display: none;
-            color: red;
-        }
-    </style>
-</head>
 <body>
-    <button id="mainButton">Click me</button>
-    <div class="box">
-        <input type="checkbox" class="checkbox">
-        <p class="message"></p>
-    </div>
-    <div class="box">
-        <input type="checkbox" class="checkbox">
-        <p class="message"></p>
-    </div>
-    <div class="box">
-        <input type="checkbox" class="checkbox">
-        <p class="message"></p>
-    </div>
-    <div class="box">
-        <input type="checkbox" class="checkbox">
-        <p class="message"></p>
-    </div>
 
-    <script>
-        document.getElementById('mainButton').addEventListener('click', function() {
-            var checkboxes = document.getElementsByClassName('checkbox');
-            var messages = document.getElementsByClassName('message');
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                    messages[i].textContent = 'Đã click';
-                } else {
-                    messages[i].textContent = 'Chưa click';
-                }
-                messages[i].style.display = 'block';
-            }
-        });
-    </script>
+<h2>Đăng ký</h2>
+
+<form id="registerForm">
+  <label for="regUsername">Tên đăng nhập:</label><br>
+  <input type="text" id="regUsername" name="regUsername"><br>
+  <label for="regPassword">Mật khẩu:</label><br>
+  <input type="password" id="regPassword" name="regPassword"><br>
+  <input type="button" value="Đăng ký" onclick="register()">
+</form>
+
+<h2>Đăng nhập</h2>
+
+<form id="loginForm">
+  <label for="loginUsername">Tên đăng nhập:</label><br>
+  <input type="text" id="loginUsername" name="loginUsername"><br>
+  <label for="loginPassword">Mật khẩu:</label><br>
+  <input type="password" id="loginPassword" name="loginPassword"><br>
+  <input type="button" value="Đăng nhập" onclick="login()">
+</form>
+
+<script>
+var accounts = {};
+
+function register() {
+  var username = document.getElementById("regUsername").value;
+  var password = document.getElementById("regPassword").value;
+  
+  if (accounts[username]) {
+    alert("Tài khoản đã tồn tại");
+  } else {
+    accounts[username] = password;
+    alert("Đăng ký thành công");
+  }
+}
+
+function login() {
+  var username = document.getElementById("loginUsername").value;
+  var password = document.getElementById("loginPassword").value;
+  
+  if (accounts[username] && accounts[username] === password) {
+    alert("Đăng nhập thành công");
+  } else {
+    alert("Đăng nhập sai");
+  }
+}
+</script>
+
 </body>
 </html>
